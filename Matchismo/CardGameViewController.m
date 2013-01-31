@@ -7,23 +7,31 @@
 //
 
 #import "CardGameViewController.h"
+#import "Deck.h"
 
 @interface CardGameViewController ()
-
+@property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
+@property (nonatomic) int flipCount;
+@property (strong, nonatomic) Deck* flipDeck;
 @end
 
 @implementation CardGameViewController
 
-- (void)viewDidLoad
+- (IBAction)flipCard:(UIButton *)sender
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    sender.selected = !sender.selected;
+    self.flipCount++;
+    
+    // TODO: draw random card from deck and set sender title to card description
 }
 
-- (void)didReceiveMemoryWarning
+-(void)setFlipCount:(int)flipCount
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    _flipCount = flipCount;
+    self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
+    NSLog(@"flips updated to %d", self.flipCount);
+    
+    // TODO: update flipsLabel to show number of remaining cards in flipDeck
 }
 
 @end
