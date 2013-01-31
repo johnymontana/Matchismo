@@ -7,20 +7,35 @@
 //
 
 #import "CardGameViewController.h"
-#import "Deck.h"
+#import "PlayingCard.h"
+#import "PlayingCardDeck.h"
 
 @interface CardGameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
-@property (strong, nonatomic) Deck* flipDeck;
+@property (strong, nonatomic) PlayingCardDeck* flipDeck;
 @end
 
 @implementation CardGameViewController
 
+-(Deck*)flipDeck
+{
+    if (!_flipDeck)
+    {
+        _flipDeck = [[PlayingCardDeck alloc] init];
+    }
+    return _flipDeck;
+}
+
 - (IBAction)flipCard:(UIButton *)sender
 {
+    PlayingCard* card = [self.flipDeck drawRandomCard];
+    [sender setTitle:card.contents forState:UIControlStateSelected];
     sender.selected = !sender.selected;
     self.flipCount++;
+    NSLog(@"Selected card: %@", card.contents);
+    
+    
     
     // TODO: draw random card from deck and set sender title to card description
 }
