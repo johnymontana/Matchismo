@@ -9,33 +9,58 @@
 #import "CardGameViewController.h"
 #import "PlayingCard.h"
 #import "PlayingCardDeck.h"
+#import "CardMatchingGame.h"
 
 @interface CardGameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
-@property (strong, nonatomic) PlayingCardDeck* flipDeck;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+@property (strong, nonatomic) CardMatchingGame *game;
 @end
 
 @implementation CardGameViewController
 
--(Deck*)flipDeck
+-(CardMatchingGame *)game
 {
-    if (!_flipDeck)
-    {
-        _flipDeck = [[PlayingCardDeck alloc] init];
-    }
-    return _flipDeck;
+    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count usingDeck:[[PlayingCardDeck alloc] init]];
+    
+    return _game;
 }
 
+
+
+-(void)setCardButtons:(NSArray *)cardButtons
+{
+    _cardButtons = cardButtons;
+}
+
+-(void)updateUI
+{
+    for (UIButton *cardButton in self.cardButtons)
+    {
+        Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
+        [cardButton setTitle:card.contents forState:UIControlStateSelected];
+        [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
+        cardButton.selected = card.isFaceUp;
+        cardButton.enabled = !card.isUnplayable;
+        cardButton.alpha = card.isUnplayable ? 0.3 : 1.0;
+    }
+    
+    self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+}
 - (IBAction)flipCard:(UIButton *)sender
 {
-    PlayingCard* card = [self.flipDeck drawRandomCard];
-    [sender setTitle:card.contents forState:UIControlStateSelected];
-    sender.selected = !sender.selected;
+   // PlayingCard* card = [self.flipDeck drawRandomCard];
+   // [sender setTitle:card.contents forState:UIControlStateSelected];
+   // sender.selected = !sender.selected;
+   // self.flipCount++;
+  //  NSLog(@"Selected card: %@", card.contents);
+
+    [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
     self.flipCount++;
-    NSLog(@"Selected card: %@", card.contents);
-    
-    
+    [self updateUI];
     
     // TODO: draw random card from deck and set sender title to card description
 }
