@@ -15,12 +15,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *resultsLabel;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (strong, nonatomic) CardMatchingGame *game;
 @end
 
 @implementation CardGameViewController
+
+- (IBAction)newDeal:(UIButton *)sender // reset game state - DEAL button action
+{
+    [self.game resetGameStateWithCards:self.cardButtons.count usingDeck:[[PlayingCardDeck alloc] init]];
+    self.flipCount=0;
+    [self updateUI];
+}
 
 -(CardMatchingGame *)game
 {
@@ -49,6 +57,7 @@
     }
     
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+    self.resultsLabel.text = self.game.result;
 }
 - (IBAction)flipCard:(UIButton *)sender
 {

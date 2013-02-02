@@ -17,6 +17,11 @@
 
 -(Card*)cardAtIndex:(NSUInteger)index;
 
+-(void)resetGameStateWithCards:(NSUInteger)cardCount
+                     usingDeck:(Deck*) deck;
+
+
 @property (nonatomic, readonly) int score;
+@property (strong, nonatomic) NSString* result;
 
 @end

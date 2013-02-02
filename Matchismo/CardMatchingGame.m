@@ -16,6 +16,21 @@
 
 @implementation CardMatchingGame
 
+-(void)resetGameStateWithCards:(NSUInteger)cardCount usingDeck:(Deck *)deck
+{
+    self.score = 0;
+    self.result = [NSString stringWithFormat:@"Start flipping!"];
+    self.cards = nil;
+    for (int i=0; i<cardCount; i++)
+    {
+        Card *card = [deck drawRandomCard];
+        self.cards[i]=card;
+        
+    }
+
+    
+}
+
 -(NSMutableArray *)cards
 {
     if (!_cards) _cards = [[NSMutableArray alloc] init];
@@ -74,12 +89,19 @@
                         otherCard.unplayable = YES;
                         card.unplayable = YES;
                         self.score += matchScore * MATCH_BONUS;
+                        self.result = [NSString stringWithFormat:@"MATCH: %@ / %@!!", card.contents, otherCard.contents];
                     }
                     else
                     {
                         otherCard.faceUP = NO;
                         self.score -= MISMATCH_PENALTY;
+                        self.result =[NSString stringWithFormat:@"%@ / %@ don't match!", card.contents, otherCard.contents];
                     }
+                }
+                
+                else
+                {
+                   // self.result = [NSString stringWithFormat:@"Flipped up %@", card.contents];
                 }
             }
             self.score -= FLIP_COST;
