@@ -16,6 +16,7 @@
 @property (nonatomic) int flipCount;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultsLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *gameModeSwitch;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (strong, nonatomic) CardMatchingGame *game;
@@ -23,11 +24,16 @@
 
 @implementation CardGameViewController
 
+-(void)viewDidLoad
+{
+    [self updateUI];
+}
 - (IBAction)newDeal:(UIButton *)sender // reset game state - DEAL button action
 {
     [self.game resetGameStateWithCards:self.cardButtons.count usingDeck:[[PlayingCardDeck alloc] init]];
     self.flipCount=0;
     [self updateUI];
+    self.gameModeSwitch.enabled = YES;  // enable game mode switch
 }
 
 -(CardMatchingGame *)game
@@ -46,11 +52,30 @@
 
 -(void)updateUI
 {
+    UIImage* cardBackImage = [UIImage imageNamed:@"GearSurfer.png"];
+    UIImage* cardFrontImage = [UIImage imageNamed:@"texture.png"];
+    
     for (UIButton *cardButton in self.cardButtons)
     {
         Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
+               //[cardButton setImage:nil forState:UIControlStateDisabled|UIControlStateSelected];
+       //if (card.isFaceUp)
+       // {
+            [cardButton setBackgroundImage:cardFrontImage forState:UIControlStateSelected];
+            [cardButton setBackgroundImage:cardFrontImage forState:UIControlStateDisabled|UIControlStateSelected];
+
+      //  }
+      // else
+        //{
+          //  [cardButton setBackgroundImage:cardBackImage forState:UIControlStateSelected|UIControlStateDisabled];
+            [cardButton setBackgroundImage:cardBackImage forState:UIControlStateNormal];
+      //  }
+        
         [cardButton setTitle:card.contents forState:UIControlStateSelected];
         [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
+
+        
+    //
         cardButton.selected = card.isFaceUp;
         cardButton.enabled = !card.isUnplayable;
         cardButton.alpha = card.isUnplayable ? 0.3 : 1.0;
@@ -66,10 +91,11 @@
    // sender.selected = !sender.selected;
    // self.flipCount++;
   //  NSLog(@"Selected card: %@", card.contents);
-
+    [self updateUI];
     [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
     self.flipCount++;
     [self updateUI];
+    self.gameModeSwitch.enabled = NO;       // disable gameModeSwitch is game play has started
     
     // TODO: draw random card from deck and set sender title to card description
 }
