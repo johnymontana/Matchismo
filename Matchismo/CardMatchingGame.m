@@ -141,17 +141,17 @@
                     
                     if (faceUpCards.count==2)
                     {
-                        NSString* resultText = [[NSString alloc] init];
+                       // NSString* resultText = [[NSString alloc] init];
                         int matchScore = [card match:faceUpCards];
                         if (matchScore)
                         {
                             // TODO: set all other cards to unplayable
                             
-                            resultText=[NSString stringWithFormat:@" "];
+                         //   resultText=[NSString stringWithFormat:@" "];
                             for (Card *otherCard in faceUpCards)
                             {
                                 otherCard.unplayable = YES;
-                                [resultText stringByAppendingFormat:@"%@", otherCard.contents];
+                           //     [resultText stringByAppendingFormat:@"%@", otherCard.contents];
                             }
                             card.unplayable = YES;
                             self.score += matchScore * MATCH_BONUS;
