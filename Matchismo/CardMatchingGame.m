@@ -9,14 +9,14 @@
 #import "CardMatchingGame.h"
 
 @interface CardMatchingGame()
-@property (strong, nonatomic) NSMutableArray *cards;
-@property (nonatomic) int score;
+@property (strong, nonatomic) NSMutableArray *cards;    // cards in the current game
+@property (nonatomic) int score;                        // current match score
 
 @end
 
 @implementation CardMatchingGame
 
--(void)resetGameStateWithCards:(NSUInteger)cardCount usingDeck:(Deck *)deck
+-(void)resetGameStateWithCards:(NSUInteger)cardCount usingDeck:(Deck *)deck     // add random cards to game
 {
     self.score = 0;
     self.result = [NSString stringWithFormat:@"Start flipping!"];
@@ -33,11 +33,11 @@
 
 -(NSMutableArray *)cards
 {
-    if (!_cards) _cards = [[NSMutableArray alloc] init];
-    return _cards;
+    if (!_cards) _cards = [[NSMutableArray alloc] init];                    // lazy instantiation
+    return _cards;  
 }
 
--(id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck
+-(id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck         // init add random cards to game
 {
     self = [super init];
     
@@ -70,8 +70,9 @@
 #define MATCH_BONUS 4
 #define MISMATCH_PENALTY 2
 
--(void)flipCardAtIndex:(NSUInteger)index
-{
+-(void)flipCardAtIndex:(NSUInteger)index        // flip card and match against any other faceup & playable cards
+{                                               // depending on 2 or 3 card matching mode, set self.score (match score)
+                                                // and self.result (result text for flip)
     Card *card = [self cardAtIndex:index];
    // NSMutableArray *faceUpCards = [[NSMutableArray alloc] init];
     
