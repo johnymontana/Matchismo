@@ -33,7 +33,15 @@
     [self.game resetGameStateWithCards:self.cardButtons.count usingDeck:[[PlayingCardDeck alloc] init]];
     self.flipCount=0;
     [self updateUI];
-    self.gameModeSwitch.enabled = YES;  // enable game mode switch
+    self.gameModeSwitch.enabled = YES; // enable game mode switch
+    self.game.three_card_match_mode = NO;
+    self.gameModeSwitch.on = NO;
+    
+}
+- (IBAction)setMatchMode:(UISwitch *)sender
+{
+
+    [self.game setThree_card_match_mode:sender.on];
 }
 
 -(CardMatchingGame *)game

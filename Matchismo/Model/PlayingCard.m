@@ -15,7 +15,7 @@
 {
     int score =0;
     
-    if (otherCards.count == 1)
+    if (otherCards.count == 1)      // for 2 card matching mode
     {
         PlayingCard *otherCard = [otherCards lastObject];
         if ([otherCard.suit isEqualToString:self.suit])
@@ -26,6 +26,22 @@
         else if (otherCard.rank == self.rank)
         {
             score = 4;
+        }
+    }
+    
+    else                            // for 3 card matching mode
+    {
+        PlayingCard *otherCard1 = otherCards[0];
+        PlayingCard *otherCard2 = otherCards[1];
+        
+        if ([otherCard1.suit isEqualToString:otherCard2.suit] && [otherCard1.suit isEqualToString:self.suit] && [self.suit isEqualToString:otherCard2.suit])
+        {
+            score = 2;
+        }
+        
+        else if (otherCard1.rank == self.rank == otherCard2.rank)
+        {
+            score = 6;
         }
     }
     return score;

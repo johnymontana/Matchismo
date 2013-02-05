@@ -23,5 +23,6 @@
 
 @property (nonatomic, readonly) int score;
 @property (strong, nonatomic) NSString* result;
+@property (nonatomic) BOOL three_card_match_mode;
 
 @end
