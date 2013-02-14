@@ -10,6 +10,7 @@
 #import "PlayingCard.h"
 #import "PlayingCardDeck.h"
 #import "CardMatchingGame.h"
+#import "GameResult.h"
 
 @interface CardGameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
@@ -22,9 +23,16 @@
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;    // these are the cards
 @property (strong, nonatomic) CardMatchingGame *game;               // Model with game playing logic
+@property (strong, nonatomic) GameResult *gameResult;
 @end
 
 @implementation CardGameViewController
+
+-(GameResult*)gameResult
+{
+    if (!_gameResult) _gameResult = [[GameResult alloc] init];
+    return _gameResult;
+}
 
 -(void)viewDidLoad
 {
@@ -53,6 +61,7 @@
     self.rewindSlider.maximumValue=0;
     self.rewindSlider.value=0;
     self.resultTextArray = [[NSMutableArray alloc] init];
+    self.gameResult = nil;
     
 }
 
@@ -117,6 +126,8 @@
     [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
     self.flipCount++;
     [self updateUI];
+    self.gameResult.score = self.game.score;
+    
     self.gameModeSwitch.enabled = NO;       // disable gameModeSwitch is game play has started
     
     // TODO: draw random card from deck and set sender title to card description
