@@ -10,4 +10,17 @@
 
 @interface SetCard : Card
 
+
+@property (strong, nonatomic) NSMutableAttributedString* attribute;
+
+@property (strong, nonatomic) NSNumber* number; // count the number of things in attribute
+@property (strong, nonatomic) NSString* symbol; // grab the first symbol from attribute
+@property (strong, nonatomic) NSNumber* shading; // NSStrokeWidthAttributeName: + number=stroke only, - = fill and stroke
+@property (strong, nonatomic) UIColor* color;
+
++(NSArray*)validNumbers;
++(NSArray*)validSymbols;
++(NSArray*)validShadings;
++(NSArray*)validColors;
+
 @end

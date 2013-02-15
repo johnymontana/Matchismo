@@ -9,9 +9,24 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Matchismo_Test_iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C54095B216CE4BA000CC6186</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C54095CD16CE4F2200CC6186</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C5F1536816BA922000117B23</key>
 		<dict>
 			<key>primary</key>

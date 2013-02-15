@@ -7,7 +7,25 @@
 //
 
 #import "SetCardDeck.h"
+#import "SetCard.h"
 
 @implementation SetCardDeck
+
+-(id)init
+{
+    self = [super init];
+    
+    if(self)
+    {
+        for (NSString* symbol in [SetCard validSymbols])
+        {
+            SetCard *card = [[SetCard alloc] init];
+            card.symbol = symbol;                       // symbol to have the correct # of symbols for setter
+            [self addCard:card atTop:YES];
+        }
+    }
+    
+    return self;
+}
 
 @end
