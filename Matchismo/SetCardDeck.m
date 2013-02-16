@@ -8,6 +8,9 @@
 
 #import "SetCardDeck.h"
 #import "SetCard.h"
+@interface SetCardDeck()
+@property (strong, nonatomic) NSMutableArray* cards;
+@end
 
 @implementation SetCardDeck
 
@@ -17,15 +20,59 @@
     
     if(self)
     {
-        for (NSString* symbol in [SetCard validSymbols])
+        NSString* testSymbol = [SetCard validSymbols][0];
+   
+        for (int i=0; i<25; i++)
         {
             SetCard *card = [[SetCard alloc] init];
-            card.symbol = symbol;                       // symbol to have the correct # of symbols for setter
+            card.symbol = testSymbol;
             [self addCard:card atTop:YES];
+            NSLog(@"Card in deck: %@", self.cards[i]);
         }
+     //   for (NSString* symbol in [SetCard validSymbols])
+     //   {
+     //       SetCard *card = [[SetCard alloc] init];
+      //      card.symbol = symbol;                       // symbol to have the correct # of symbols for setter
+//            NSLog(@"set symbol to %@", card.symbol);
+//
+//            [self addCard:card atTop:YES];
+//        }
+//    }
+    }
+    return self;
+}
+
+-(NSMutableArray*) cards
+{
+    if (!_cards) _cards = [[NSMutableArray alloc] init];    // lazy instantiation
+    return _cards;
+}
+
+-(void)addCard:(SetCard *)card atTop:(BOOL)atTop
+{
+    if (atTop)
+    {
+        [self.cards insertObject:card atIndex:0];
+    }
+    else
+    {
+        [self.cards addObject:card];
     }
     
-    return self;
+}
+
+-(SetCard*)drawRandomCard
+{
+    SetCard *randomCard = nil;
+    
+    if (self.cards.count)
+    {
+        unsigned index = arc4random() % self.cards.count;
+        randomCard = self.cards[index];
+        [self.cards removeObjectAtIndex:index];
+    }
+    
+    return randomCard;
 }
 
 @end

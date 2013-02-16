@@ -7,7 +7,10 @@
 //
 
 #import "Deck.h"
+#import "SetCard.h"
 
-@interface SetCardDeck : Deck
+@interface SetCardDeck : NSObject
+-(void)addCard:(SetCard*)card atTop:(BOOL)atTop;
+-(SetCard*)drawRandomCard;
 
 @end

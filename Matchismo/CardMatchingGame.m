@@ -46,6 +46,7 @@
         for (int i=0; i<cardCount; i++)
         {
             Card *card = [deck drawRandomCard];
+            NSLog(@"Just drew a: %@", card.contents);
             if (!card)
             {
                 self=nil;

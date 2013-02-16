@@ -39,7 +39,9 @@
 -(void)setSymbol:(NSString *)symbol
 {
     _symbol=symbol;
-    _attribute = [[NSMutableAttributedString alloc] initWithString:symbol];
+    self.attribute = [[NSMutableAttributedString alloc] initWithString:symbol];
+    NSLog(@"setting card symbol to: %@", symbol);
+    NSLog(@"self.attribute is now %@", self.attribute);
     
     // don't need to set any attributes here
     //[self.attribute addAttribute:<#(NSString *)#> value:<#(id)#> range:<#(NSRange)#>
@@ -50,6 +52,8 @@
 
 -(NSMutableAttributedString*)contents
 {
+//    if (!_attribute) _attribute = [[NSMutableAttributedString alloc] init];
+//    return _attribute;
     return self.attribute;
 }
 

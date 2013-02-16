@@ -7,7 +7,16 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+@class SetCard;
+@class SetCardDeck;
+@class SetCardMatchingGame;
+
 
 @interface Matchismo_Test_iOS : SenTestCase
+{
+    SetCard* setCard;
+    SetCardDeck* deck;
+    SetCardMatchingGame* game;
+}
 
 @end

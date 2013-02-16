@@ -8,7 +8,8 @@
 
 #import "Card.h"
 
-@interface SetCard : Card
+@interface SetCard : NSObject
+
 
 
 @property (strong, nonatomic) NSMutableAttributedString* attribute;
@@ -18,9 +19,14 @@
 @property (strong, nonatomic) NSNumber* shading; // NSStrokeWidthAttributeName: + number=stroke only, - = fill and stroke
 @property (strong, nonatomic) UIColor* color;
 
+@property (nonatomic, getter=isFaceUp) BOOL faceUP;
+@property (nonatomic, getter = isUnplayable) BOOL unplayable;
+
+
 +(NSArray*)validNumbers;
 +(NSArray*)validSymbols;
 +(NSArray*)validShadings;
 +(NSArray*)validColors;
+-(NSMutableAttributedString*)contents;
 
 @end

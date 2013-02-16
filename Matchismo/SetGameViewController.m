@@ -31,18 +31,10 @@
 
 -(void)viewDidLoad
 {
-    [super viewDidLoad];
+    //[super viewDidLoad];
     [self newDeal:nil];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 -(SetCardMatchingGame*)game
 {
@@ -61,9 +53,19 @@
     
     for (UIButton *cardButton in self.cardButtons)
     {
-        Card* card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
-        NSLog(@"Card.contents is class: %@", [[card.contents class] description]);
-        [cardButton setTitle:card.contents forState:UIControlStateNormal];
+        
+        SetCard* card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
+       // NSLog(@"Card is class: %@", [[card class] description]);
+        NSLog(@"Index of cardButton: %d", [self.cardButtons indexOfObject:cardButton]);
+       // NSLog(@"Card.contents is class: %@", [[card.contents class] description]);
+        NSLog(@"Card.contents: %@", card.attribute);
+        
+        //cardButton.
+        
+        [cardButton setAttributedTitle:card.attribute forState:UIControlStateNormal];
+        [cardButton setAttributedTitle:card.attribute forState:UIControlStateSelected];
+     //   [cardButton setTitle:card.contents forState:UIControlStateNormal];
+     //   [cardButton setTitle:card.contents forState:UIControlStateSelected];
     }
 }
 - (void)didReceiveMemoryWarning
@@ -74,6 +76,7 @@
 - (IBAction)newDeal:(UIButton *)sender
 {
     // reset game state
+    [self.game resetGameStateWithCards:self.cardButtons.count usingDeck:[[SetCardDeck alloc] init]];
     [self updateUI];
 }
 

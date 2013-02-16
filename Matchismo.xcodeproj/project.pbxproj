@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C518CACA16CFD95C007DBD2E /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F1263816CC2CAB00E3454A /* SetCard.m */; };
+		C518CACB16CFD97E007DBD2E /* SetCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = C54095E016CE5F4100CC6186 /* SetCardDeck.m */; };
+		C518CACC16CFD983007DBD2E /* SetCardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C54095E316CE71CC00CC6186 /* SetCardMatchingGame.m */; };
 		C531064D16BC2C6200635BA0 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C531064C16BC2C6200635BA0 /* CardMatchingGame.m */; };
 		C54095CF16CE4F2200CC6186 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54095B416CE4BA000CC6186 /* SenTestingKit.framework */; };
 		C54095D016CE4F2200CC6186 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F1536D16BA922000117B23 /* UIKit.framework */; };
@@ -198,8 +201,8 @@
 				C5B0CF4916CD9DD6001F74AE /* GameResult.m */,
 				C5CB5ACB16CD1ECD004E4E7B /* GameResultsViewController.h */,
 				C5CB5ACC16CD1ECD004E4E7B /* GameResultsViewController.m */,
-				C5F1263516CC2C8A00E3454A /* SetGameViewController.m */,
 				C5F1263416CC2C8A00E3454A /* SetGameViewController.h */,
+				C5F1263516CC2C8A00E3454A /* SetGameViewController.m */,
 				C5F1539316BAA37400117B23 /* Model */,
 				C5F1538816BA922000117B23 /* CardGameViewController.h */,
 				C5F1538916BA922000117B23 /* CardGameViewController.m */,
@@ -235,9 +238,9 @@
 		C5F1539316BAA37400117B23 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C531064B16BC2C6200635BA0 /* CardMatchingGame.h */,
 				C54095E216CE71CC00CC6186 /* SetCardMatchingGame.h */,
 				C54095E316CE71CC00CC6186 /* SetCardMatchingGame.m */,
+				C531064B16BC2C6200635BA0 /* CardMatchingGame.h */,
 				C531064C16BC2C6200635BA0 /* CardMatchingGame.m */,
 				C54095DF16CE5F4100CC6186 /* SetCardDeck.h */,
 				C54095E016CE5F4100CC6186 /* SetCardDeck.m */,
@@ -374,6 +377,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C54095DA16CE4F2200CC6186 /* Matchismo_Test_iOS.m in Sources */,
+				C518CACA16CFD95C007DBD2E /* SetCard.m in Sources */,
+				C518CACB16CFD97E007DBD2E /* SetCardDeck.m in Sources */,
+				C518CACC16CFD983007DBD2E /* SetCardMatchingGame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +554,7 @@
 				C54095DE16CE4F2200CC6186 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C5F1536316BA922000117B23 /* Build configuration list for PBXProject "Matchismo" */ = {
 			isa = XCConfigurationList;
