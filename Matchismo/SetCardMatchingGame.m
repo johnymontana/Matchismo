@@ -11,18 +11,78 @@
 
 @interface SetCardMatchingGame()
 @property (strong, nonatomic) NSMutableArray* cards;
+@property (nonatomic) int score;
 @end
 
 
 @implementation SetCardMatchingGame
 
+#define FLIP_COST 1
+#define MATCH_BONUS 7
+#define MISMATCH_PENALTY 5
+
 -(void)flipCardAtIndex:(NSUInteger)index
 {
     SetCard *card  = [self cardAtIndex:index];
     // TODO: 3-card matching mode only - see CardMatchingGame flipCardAtIndex:
+    NSMutableArray *faceUpCards = [[NSMutableArray alloc] init];
     
-    card.faceUP = !card.faceUP;
+    if (!card.isUnplayable)
+    {
+        if (!card.isFaceUp)
+        {
+            self.result = [NSString stringWithFormat:@"Flipped: %@", card.contents];    // Show card being flipped
+            for (SetCard *otherCard in self.cards)
+            {
+                if (otherCard.isFaceUp && !otherCard.isUnplayable)
+                {
+                    [faceUpCards addObject:otherCard];
+                }
+                
+                if (faceUpCards.count==2)
+                {
+                    // NSString* resultText = [[NSString alloc] init];
+                    int matchScore = [card match:faceUpCards];
+                    if (matchScore)
+                    {
+                        // TODO: set all other cards to unplayable
+                        
+                        //   resultText=[NSString stringWithFormat:@" "];
+                        for (SetCard *otherCard in faceUpCards)
+                        {
+                            otherCard.unplayable = YES;
+                            //     [resultText stringByAppendingFormat:@"%@", otherCard.contents];
+                        }
+                        card.unplayable = YES;
+                        self.score += matchScore * MATCH_BONUS;
+                        SetCard* otherCard1 = faceUpCards[0];
+                        SetCard* otherCard2 = faceUpCards[1];
+                        
+                        self.result = [NSString stringWithFormat:@"MATCH: %@ / %@ / %@!!", card.contents, otherCard1.contents, otherCard2.contents];
+                    }
+                    else
+                    {
+                        // TODO: set all other cards to faceUP=NO
+                        
+                        for (Card *otherCard in faceUpCards)
+                        {
+                            otherCard.faceUP = NO;
+                        }
+                        self.score -= MISMATCH_PENALTY;
+                        SetCard* otherCard1 = faceUpCards[0];
+                        SetCard* otherCard2 = faceUpCards[1];
+                        
+                        self.result = [NSString stringWithFormat:@"NO MATCH: %@ / %@ / %@", card.contents, otherCard1.contents, otherCard2.contents];
+                        
+                    }
+                }
+            }
+            self.score -= FLIP_COST;
+        }
+        card.faceUP = !card.isFaceUp;
+        faceUpCards=nil;
     
+    }
 }
 
 -(NSMutableArray*) cards

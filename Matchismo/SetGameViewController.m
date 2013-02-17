@@ -29,6 +29,12 @@
 
 @implementation SetGameViewController
 
+-(GameResult*) gameResult
+{
+    if (!_gameResult) _gameResult=[[GameResult alloc] init];
+    return _gameResult;
+}
+
 -(void)viewDidLoad
 {
     //[super viewDidLoad];
@@ -47,10 +53,24 @@
     _cardButtons = cardButtons;
 }
 
+- (IBAction)flipCard:(UIButton *)sender
+{
+    [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
+    self.flipCount++;
+    [self updateUI];
+    self.gameResult.score = self.game.score;
+
+}
+
+-(void)setFlipCount:(int)flipCount
+{
+    _flipCount = flipCount;
+    self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
+}
 -(void)updateUI
 {
     // set buttons title
-    
+    UIImage* cardFrontImage = [UIImage imageNamed:@"texture.png"];
     for (UIButton *cardButton in self.cardButtons)
     {
         
@@ -60,12 +80,21 @@
        // NSLog(@"Card.contents is class: %@", [[card.contents class] description]);
         NSLog(@"Card.contents: %@", card.attribute);
         
-        //cardButton.
+        [cardButton setBackgroundImage:cardFrontImage forState:UIControlStateSelected];
+        [cardButton setBackgroundImage:cardFrontImage forState:UIControlStateDisabled|UIControlStateSelected];
         
         [cardButton setAttributedTitle:card.attribute forState:UIControlStateNormal];
         [cardButton setAttributedTitle:card.attribute forState:UIControlStateSelected];
      //   [cardButton setTitle:card.contents forState:UIControlStateNormal];
      //   [cardButton setTitle:card.contents forState:UIControlStateSelected];
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+       // [self.resultTextArray addObject:self.game.result];
+        self.resultsLabel.text = self.game.result;  // show result text
+        cardButton.selected = card.faceUP;
+        cardButton.enabled = !card.isUnplayable;    // has the card already been matched?
+        cardButton.alpha = card.isUnplayable ? 0.1 : 1.0;   // set transparant if card has already been matched
+
+
     }
 }
 - (void)didReceiveMemoryWarning
@@ -77,6 +106,9 @@
 {
     // reset game state
     [self.game resetGameStateWithCards:self.cardButtons.count usingDeck:[[SetCardDeck alloc] init]];
+    self.flipCount=0;
+
+    self.gameResult = nil;
     [self updateUI];
 }
 

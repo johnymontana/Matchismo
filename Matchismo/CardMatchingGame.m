@@ -174,7 +174,7 @@
                             Card* otherCard1 = faceUpCards[0];
                             Card* otherCard2 = faceUpCards[1];
                             
-                            self.result = [NSString stringWithFormat:@"%@ / %@ / %@ don't match!", card.contents, otherCard1.contents, otherCard2.contents];
+                            self.result = [NSString stringWithFormat:@"NO MATCH: %@ / %@ / %@", card.contents, otherCard1.contents, otherCard2.contents];
                             
                         }
                     }

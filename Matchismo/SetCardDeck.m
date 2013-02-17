@@ -20,25 +20,38 @@
     
     if(self)
     {
-        NSString* testSymbol = [SetCard validSymbols][0];
+ //       NSString* testSymbol = [SetCard validSymbols][0];
    
-        for (int i=0; i<25; i++)
+ //       for (int i=0; i<25; i++)
+ //       {
+ //           SetCard *card = [[SetCard alloc] init];
+ //           card.symbol = testSymbol;
+ //           [self addCard:card atTop:YES];
+ //           NSLog(@"Card in deck: %@", self.cards[i]);
+ //       }
+        for (NSString* symbol in [SetCard validSymbols])
         {
-            SetCard *card = [[SetCard alloc] init];
-            card.symbol = testSymbol;
-            [self addCard:card atTop:YES];
-            NSLog(@"Card in deck: %@", self.cards[i]);
+            for (UIColor* color in [SetCard validColors])
+            {
+                for (NSNumber* number in [SetCard validNumbers])
+                {
+                    for (NSNumber* shade in [SetCard validShadings])
+                    {
+                        SetCard *card = [[SetCard alloc] init];
+                        card.symbol = symbol;            // symbol to have the correct # of symbols for setter
+                        card.number = number;
+                        card.color = color;
+                        
+                        card.shading = shade;  // Shading not going to work this way
+                        
+                        //NSLog(@"set symbol to %@", card.symbol);
+                        [self addCard:card atTop:YES];
+                    }
+                }
+            }
         }
-     //   for (NSString* symbol in [SetCard validSymbols])
-     //   {
-     //       SetCard *card = [[SetCard alloc] init];
-      //      card.symbol = symbol;                       // symbol to have the correct # of symbols for setter
-//            NSLog(@"set symbol to %@", card.symbol);
-//
-//            [self addCard:card atTop:YES];
-//        }
-//    }
     }
+    
     return self;
 }
 

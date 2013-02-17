@@ -28,5 +28,6 @@
 +(NSArray*)validShadings;
 +(NSArray*)validColors;
 -(NSMutableAttributedString*)contents;
+-(int)match:(NSArray*)otherCards;
 
 @end

@@ -201,11 +201,11 @@
 				C5B0CF4916CD9DD6001F74AE /* GameResult.m */,
 				C5CB5ACB16CD1ECD004E4E7B /* GameResultsViewController.h */,
 				C5CB5ACC16CD1ECD004E4E7B /* GameResultsViewController.m */,
+				C5F1538816BA922000117B23 /* CardGameViewController.h */,
+				C5F1538916BA922000117B23 /* CardGameViewController.m */,
 				C5F1263416CC2C8A00E3454A /* SetGameViewController.h */,
 				C5F1263516CC2C8A00E3454A /* SetGameViewController.m */,
 				C5F1539316BAA37400117B23 /* Model */,
-				C5F1538816BA922000117B23 /* CardGameViewController.h */,
-				C5F1538916BA922000117B23 /* CardGameViewController.m */,
 				C5F1537416BA922000117B23 /* Supporting Files */,
 			);
 			path = Matchismo;

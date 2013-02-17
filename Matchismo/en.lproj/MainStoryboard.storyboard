@@ -359,7 +359,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nMu-YQ-Vw7">
-                                <rect key="frame" x="100" y="6" width="121" height="21"/>
+                                <rect key="frame" x="20" y="6" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Game Info Here">
@@ -389,14 +389,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qoW-20-iKG">
-                                <rect key="frame" x="20" y="348" width="64" height="21"/>
+                                <rect key="frame" x="20" y="348" width="169" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flips: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RRz-ia-FLl">
-                                <rect key="frame" x="20" y="377" width="55" height="21"/>
+                                <rect key="frame" x="20" y="377" width="199" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -409,6 +409,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="E5l-EO-K2b"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="qXw-Wf-v4m">
                                 <rect key="frame" x="101" y="47" width="55" height="42"/>
@@ -417,6 +420,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="rne-Gj-0a1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="Vd7-dR-kII">
                                 <rect key="frame" x="164" y="47" width="55" height="42"/>
@@ -425,6 +431,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="YZo-DV-kYr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="4nZ-J0-wIF">
                                 <rect key="frame" x="227" y="47" width="55" height="42"/>
@@ -433,6 +442,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="982-wG-oRV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="O81-Yc-vvp">
                                 <rect key="frame" x="38" y="96" width="55" height="42"/>
@@ -441,6 +453,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="OEz-vQ-rRE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="hgT-oa-ctk">
                                 <rect key="frame" x="101" y="96" width="55" height="42"/>
@@ -449,6 +464,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="QNE-KK-i6r"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="pyh-qL-Vum">
                                 <rect key="frame" x="164" y="96" width="55" height="42"/>
@@ -457,6 +475,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="iRo-tb-RQl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="hxC-7A-Ufd">
                                 <rect key="frame" x="227" y="96" width="55" height="42"/>
@@ -465,6 +486,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="g5S-pO-Cw2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="X9a-b0-cfv">
                                 <rect key="frame" x="38" y="145" width="55" height="42"/>
@@ -473,6 +497,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="Hg1-BF-x3R"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="zxz-nV-Jlj">
                                 <rect key="frame" x="101" y="145" width="55" height="42"/>
@@ -481,6 +508,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="lwN-Zb-NB8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="PlU-zK-DVl">
                                 <rect key="frame" x="164" y="145" width="55" height="42"/>
@@ -489,6 +519,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="d8C-AF-a28"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="EgV-sG-SUE">
                                 <rect key="frame" x="227" y="145" width="55" height="42"/>
@@ -497,6 +530,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="ZXb-iB-S1O"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="bVH-lX-3ip">
                                 <rect key="frame" x="38" y="194" width="55" height="42"/>
@@ -505,6 +541,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="jeC-H0-oSK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="swl-iV-IHP">
                                 <rect key="frame" x="101" y="194" width="55" height="42"/>
@@ -513,6 +552,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="cm4-xa-OQP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="qfo-ix-oBT">
                                 <rect key="frame" x="164" y="194" width="55" height="42"/>
@@ -521,6 +563,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="Rfd-fQ-kDA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="8AW-8C-zkF">
                                 <rect key="frame" x="227" y="194" width="55" height="42"/>
@@ -529,6 +574,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="MOd-Gw-a8u"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="57v-aF-4nw">
                                 <rect key="frame" x="38" y="243" width="55" height="42"/>
@@ -537,6 +585,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="Efe-sh-RZO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="DiL-rw-GkG">
                                 <rect key="frame" x="101" y="243" width="55" height="42"/>
@@ -545,6 +596,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="BLM-KQ-1T7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="qHV-2K-QYM">
                                 <rect key="frame" x="164" y="243" width="55" height="42"/>
@@ -553,6 +607,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="Bjf-Hd-Ywx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="6xj-KL-JKq">
                                 <rect key="frame" x="227" y="243" width="55" height="42"/>
@@ -561,6 +618,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="buI-6A-RbO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="tbC-Jm-yS7">
                                 <rect key="frame" x="38" y="299" width="55" height="42"/>
@@ -569,6 +629,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="6jq-ZY-fP4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="25n-c6-Qaf">
                                 <rect key="frame" x="101" y="299" width="55" height="42"/>
@@ -577,6 +640,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="tvw-YG-Rey"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="NPk-Xr-z9u">
                                 <rect key="frame" x="164" y="299" width="55" height="42"/>
@@ -585,6 +651,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="u38-FR-o8M"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="pdF-lv-lPj">
                                 <rect key="frame" x="227" y="299" width="55" height="42"/>
@@ -593,6 +662,9 @@
                                 <state key="normal">
                                     <attributedString key="attributedTitle"/>
                                 </state>
+                                <connections>
+                                    <action selector="flipCard:" destination="MvW-nK-pwV" eventType="touchUpInside" id="M7o-lG-8T6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -749,6 +821,7 @@
         <class className="SetGameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SetGameViewController.h"/>
             <relationships>
+                <relationship kind="action" name="flipCard:" candidateClass="UIButton"/>
                 <relationship kind="action" name="newDeal:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="flipsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="resultsLabel" candidateClass="UILabel"/>
