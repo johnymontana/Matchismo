@@ -31,7 +31,10 @@
     {
         if (!card.isFaceUp)
         {
-            self.result = [NSString stringWithFormat:@"Flipped: %@", card.contents];    // Show card being flipped
+            self.result = [[NSMutableAttributedString alloc] initWithString:@"Selected: "];
+            [self.result appendAttributedString:card.contents];
+            
+            //self.result = [NSString stringWithFormat:@"Flipped: %@", card.contents];    // Show card being flipped
             for (SetCard *otherCard in self.cards)
             {
                 if (otherCard.isFaceUp && !otherCard.isUnplayable)
@@ -58,7 +61,15 @@
                         SetCard* otherCard1 = faceUpCards[0];
                         SetCard* otherCard2 = faceUpCards[1];
                         
-                        self.result = [NSString stringWithFormat:@"MATCH: %@ / %@ / %@!!", card.contents, otherCard1.contents, otherCard2.contents];
+                         self.result = [[NSMutableAttributedString alloc] initWithString:@"MATCH "];
+                                       
+                        [self.result appendAttributedString:card.contents];
+                        [self.result appendAttributedString:[[NSAttributedString alloc] initWithString:@" / "]];
+                        [self.result appendAttributedString:otherCard1.contents];
+                        [self.result appendAttributedString:[[NSAttributedString alloc] initWithString:@" / "]];
+                        [self.result appendAttributedString:otherCard2.contents];
+                        
+                        //self.result = [NSString stringWithFormat:@"MATCH: %@ / %@ / %@!!", card.contents, otherCard1.contents, otherCard2.contents];
                     }
                     else
                     {
@@ -72,7 +83,14 @@
                         SetCard* otherCard1 = faceUpCards[0];
                         SetCard* otherCard2 = faceUpCards[1];
                         
-                        self.result = [NSString stringWithFormat:@"NO MATCH: %@ / %@ / %@", card.contents, otherCard1.contents, otherCard2.contents];
+                        //self.result = [NSString stringWithFormat:@"NO MATCH: %@ / %@ / %@", card.contents, otherCard1.contents, otherCard2.contents];
+                        self.result = [[NSMutableAttributedString alloc] initWithString:@"NO MATCH:  "];
+                        
+                        [self.result appendAttributedString:card.contents];
+                        [self.result appendAttributedString:[[NSAttributedString alloc] initWithString:@" / "]];
+                        [self.result appendAttributedString:otherCard1.contents];
+                        [self.result appendAttributedString:[[NSAttributedString alloc] initWithString:@" / "]];
+                        [self.result appendAttributedString:otherCard2.contents];
                         
                     }
                 }
@@ -124,8 +142,11 @@
 
 -(void)resetGameStateWithCards:(NSUInteger)cardCount usingDeck:(SetCardDeck *)deck     // add random cards to game
 {
-    //self.score = 0;
-    //self.result = [NSString stringWithFormat:@"Start flipping!"];
+    self.score = 0;
+    //self.result = [NSString stringWithFormat:@"Find some sets!"];
+    
+    self.result = [[NSMutableAttributedString alloc] initWithString:@"Find some sets!"];
+    
     self.cards = nil;
     for (int i=0; i<cardCount; i++)
     {

@@ -34,7 +34,7 @@
 +(NSArray*) validColors
 {
     // TODO: return array of valid colors
-    return @[[UIColor greenColor], [UIColor orangeColor], [UIColor redColor], [UIColor blackColor]];
+    return @[[UIColor greenColor], [UIColor redColor], [UIColor blackColor]];
 }
 
 -(void)setSymbol:(NSString *)symbol

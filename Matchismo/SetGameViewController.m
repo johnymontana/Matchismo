@@ -89,7 +89,7 @@
      //   [cardButton setTitle:card.contents forState:UIControlStateSelected];
         self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
        // [self.resultTextArray addObject:self.game.result];
-        self.resultsLabel.text = self.game.result;  // show result text
+        self.resultsLabel.attributedText = self.game.result;  // show result text
         cardButton.selected = card.faceUP;
         cardButton.enabled = !card.isUnplayable;    // has the card already been matched?
         cardButton.alpha = card.isUnplayable ? 0.1 : 1.0;   // set transparant if card has already been matched
